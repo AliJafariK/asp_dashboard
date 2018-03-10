@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Vod.MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <!-- Meta tags and CSS reference needed for bootstrap -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Sample | Vodio </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="padding-top: 70px;">
+    <form id="form1" runat="server">
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Vodio ^_^</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/HomePage.aspx">Home</a></li>
+                        <li><a href="movyform.aspx">Movies</a></li>
+                        <li><a href="category.aspx">Categories</a></li>
+                        <li><a href="genre.aspx">Genres</a></li>
+                        <li><a href="agent.aspx">Agents</a></li>
+
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+        </div>
+    </form>
+
+    <!-- jQuery and Bootstrap JS files -->
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

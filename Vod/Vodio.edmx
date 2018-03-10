@@ -1,0 +1,1566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Vodio.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="VodioStoreContainer">
+    <EntitySet Name="Movies" EntityType="Vodio.Store.Movies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Images" EntityType="Vodio.Store.Images" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Homes" EntityType="Vodio.Store.Homes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bundles" EntityType="Vodio.Store.Bundles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Banners" EntityType="Vodio.Store.Banners" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categories" EntityType="Vodio.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Genres" EntityType="Vodio.Store.Genres" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Agents" EntityType="Vodio.Store.Agents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="Vodio.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="Vodio.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comments" EntityType="Vodio.Store.Comments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rates" EntityType="Vodio.Store.Rates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoryGenres" EntityType="Vodio.Store.CategoryGenres" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Purchases" EntityType="Vodio.Store.Purchases" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Factors" EntityType="Vodio.Store.Factors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Messages" EntityType="Vodio.Store.Messages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PanelUsers" EntityType="Vodio.Store.PanelUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Emails" EntityType="Vodio.Store.Emails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HomeBundle" EntityType="Vodio.Store.HomeBundle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BundleMovie" EntityType="Vodio.Store.BundleMovie" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BundleBanner" EntityType="Vodio.Store.BundleBanner" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MovieCategory" EntityType="Vodio.Store.MovieCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MovieGenre" EntityType="Vodio.Store.MovieGenre" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PanelUserMovie" EntityType="Vodio.Store.PanelUserMovie" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="MovieImage" Association="Vodio.Store.MovieImage">
+      <End Role="Movie" EntitySet="Movies" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HomeBundle_Home" Association="Vodio.Store.FK_HomeBundle_Home">
+      <End Role="Home" EntitySet="Homes" />
+      <End Role="HomeBundle" EntitySet="HomeBundle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HomeBundle_Bundle" Association="Vodio.Store.FK_HomeBundle_Bundle">
+      <End Role="Bundle" EntitySet="Bundles" />
+      <End Role="HomeBundle" EntitySet="HomeBundle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BundleMovie_Bundle" Association="Vodio.Store.FK_BundleMovie_Bundle">
+      <End Role="Bundle" EntitySet="Bundles" />
+      <End Role="BundleMovie" EntitySet="BundleMovie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BundleMovie_Movie" Association="Vodio.Store.FK_BundleMovie_Movie">
+      <End Role="Movie" EntitySet="Movies" />
+      <End Role="BundleMovie" EntitySet="BundleMovie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BundleBanner_Bundle" Association="Vodio.Store.FK_BundleBanner_Bundle">
+      <End Role="Bundle" EntitySet="Bundles" />
+      <End Role="BundleBanner" EntitySet="BundleBanner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BundleBanner_Banner" Association="Vodio.Store.FK_BundleBanner_Banner">
+      <End Role="Banner" EntitySet="Banners" />
+      <End Role="BundleBanner" EntitySet="BundleBanner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieCategory_Movie" Association="Vodio.Store.FK_MovieCategory_Movie">
+      <End Role="Movie" EntitySet="Movies" />
+      <End Role="MovieCategory" EntitySet="MovieCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieCategory_Category" Association="Vodio.Store.FK_MovieCategory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="MovieCategory" EntitySet="MovieCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieGenre_Movie" Association="Vodio.Store.FK_MovieGenre_Movie">
+      <End Role="Movie" EntitySet="Movies" />
+      <End Role="MovieGenre" EntitySet="MovieGenre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieGenre_Genre" Association="Vodio.Store.FK_MovieGenre_Genre">
+      <End Role="Genre" EntitySet="Genres" />
+      <End Role="MovieGenre" EntitySet="MovieGenre" />
+    </AssociationSet>
+    <AssociationSet Name="RoleMovie" Association="Vodio.Store.RoleMovie">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Movie" EntitySet="Movies" />
+    </AssociationSet>
+    <AssociationSet Name="RoleAgent" Association="Vodio.Store.RoleAgent">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Agent" EntitySet="Agents" />
+    </AssociationSet>
+    <AssociationSet Name="CommentMovie" Association="Vodio.Store.CommentMovie">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="Movie" EntitySet="Movies" />
+    </AssociationSet>
+    <AssociationSet Name="RateMovie" Association="Vodio.Store.RateMovie">
+      <End Role="Rate" EntitySet="Rates" />
+      <End Role="Movie" EntitySet="Movies" />
+    </AssociationSet>
+    <AssociationSet Name="RateUser" Association="Vodio.Store.RateUser">
+      <End Role="Rate" EntitySet="Rates" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="CategoryGenreCategory" Association="Vodio.Store.CategoryGenreCategory">
+      <End Role="CategoryGenre" EntitySet="CategoryGenres" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="CategoryGenreGenre" Association="Vodio.Store.CategoryGenreGenre">
+      <End Role="CategoryGenre" EntitySet="CategoryGenres" />
+      <End Role="Genre" EntitySet="Genres" />
+    </AssociationSet>
+    <AssociationSet Name="PurchaseUser" Association="Vodio.Store.PurchaseUser">
+      <End Role="Purchase" EntitySet="Purchases" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="PurchaseMovie" Association="Vodio.Store.PurchaseMovie">
+      <End Role="Purchase" EntitySet="Purchases" />
+      <End Role="Movie" EntitySet="Movies" />
+    </AssociationSet>
+    <AssociationSet Name="UserFactor" Association="Vodio.Store.UserFactor">
+      <End Role="Factor" EntitySet="Factors" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FactorPurchase" Association="Vodio.Store.FactorPurchase">
+      <End Role="Factor" EntitySet="Factors" />
+      <End Role="Purchase" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="MessageUser" Association="Vodio.Store.MessageUser">
+      <End Role="Message" EntitySet="Messages" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserComment" Association="Vodio.Store.UserComment">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PanelUserMovie_PanelUser" Association="Vodio.Store.FK_PanelUserMovie_PanelUser">
+      <End Role="PanelUser" EntitySet="PanelUsers" />
+      <End Role="PanelUserMovie" EntitySet="PanelUserMovie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PanelUserMovie_Movie" Association="Vodio.Store.FK_PanelUserMovie_Movie">
+      <End Role="Movie" EntitySet="Movies" />
+      <End Role="PanelUserMovie" EntitySet="PanelUserMovie" />
+    </AssociationSet>
+    <AssociationSet Name="MovieMovie" Association="Vodio.Store.MovieMovie">
+      <End Role="Movie" EntitySet="Movies" />
+      <End Role="Movie1" EntitySet="Movies" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Movies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Duration" Type="bigint" Nullable="false" />
+    <Property Name="Rate" Type="float" Nullable="false" />
+    <Property Name="RatedUsers" Type="int" Nullable="false" />
+    <Property Name="CommentId" Type="int" Nullable="false" />
+    <Property Name="Visit" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="ThumbUps" Type="int" Nullable="false" />
+    <Property Name="ThumbDowns" Type="int" Nullable="false" />
+    <Property Name="Featured" Type="bit" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Qualities" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Downloadables" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Teaser" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="FolderName" Type="nvarchar(max)" Nullable="false" DefaultValue="" />
+    <Property Name="Disable" Type="bit" Nullable="false" />
+    <Property Name="EditorialRate" Type="float" Nullable="false" />
+    <Property Name="Filter" Type="bit" Nullable="false" />
+    <Property Name="Thumbnail_Id" Type="int" Nullable="false" />
+    <Property Name="Parent_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Width" Type="int" Nullable="false" />
+    <Property Name="Height" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Homes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bundles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CateroryId" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="GenreId" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Type" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Banners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Width" Type="int" Nullable="false" />
+    <Property Name="Height" Type="int" Nullable="false" />
+    <Property Name="UrlToClick" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="MovieId" Type="int" Nullable="true" />
+    <Property Name="CategoryId" Type="int" Nullable="true" />
+    <Property Name="GenreId" Type="int" Nullable="true" />
+    <Property Name="ListName" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Agents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Bio" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Movie_Id" Type="int" Nullable="false" />
+    <Property Name="Agent_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Msisdn" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Token" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="LastLogin" Type="datetime" Nullable="true" />
+    <Property Name="Platform" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CodeSentTime" Type="datetime" Nullable="false" />
+    <Property Name="RetryCodeSent" Type="int" Nullable="false" />
+    <Property Name="FailedCodeTry" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Movie_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ThumbUp" Type="bit" Nullable="false" />
+    <Property Name="ThumbDown" Type="bit" Nullable="false" />
+    <Property Name="Movie_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoryGenres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+    <Property Name="Genre_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="Factor_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Factors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="TransactionId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="MovieID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Result" Type="bit" Nullable="false" />
+    <Property Name="CompleteDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MediaId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PanelUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Token" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="Role" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Emails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HomeBundle">
+    <Key>
+      <PropertyRef Name="Homes_Id" />
+      <PropertyRef Name="Bundles_Id" />
+    </Key>
+    <Property Name="Homes_Id" Type="int" Nullable="false" />
+    <Property Name="Bundles_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BundleMovie">
+    <Key>
+      <PropertyRef Name="Bundles_Id" />
+      <PropertyRef Name="Movies_Id" />
+    </Key>
+    <Property Name="Bundles_Id" Type="int" Nullable="false" />
+    <Property Name="Movies_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BundleBanner">
+    <Key>
+      <PropertyRef Name="Bundles_Id" />
+      <PropertyRef Name="Banners_Id" />
+    </Key>
+    <Property Name="Bundles_Id" Type="int" Nullable="false" />
+    <Property Name="Banners_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieCategory">
+    <Key>
+      <PropertyRef Name="Movies_Id" />
+      <PropertyRef Name="Categories_Id" />
+    </Key>
+    <Property Name="Movies_Id" Type="int" Nullable="false" />
+    <Property Name="Categories_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieGenre">
+    <Key>
+      <PropertyRef Name="Movies_Id" />
+      <PropertyRef Name="Genres_Id" />
+    </Key>
+    <Property Name="Movies_Id" Type="int" Nullable="false" />
+    <Property Name="Genres_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PanelUserMovie">
+    <Key>
+      <PropertyRef Name="PanelUsers_Id" />
+      <PropertyRef Name="Movies_Id" />
+    </Key>
+    <Property Name="PanelUsers_Id" Type="int" Nullable="false" />
+    <Property Name="Movies_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="MovieImage">
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="*" />
+    <End Role="Image" Type="Vodio.Store.Images" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Movie">
+        <PropertyRef Name="Thumbnail_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleMovie">
+    <End Role="Role" Type="Vodio.Store.Roles" Multiplicity="*" />
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="Movie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleAgent">
+    <End Role="Role" Type="Vodio.Store.Roles" Multiplicity="*" />
+    <End Role="Agent" Type="Vodio.Store.Agents" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="Agent_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommentMovie">
+    <End Role="Comment" Type="Vodio.Store.Comments" Multiplicity="*" />
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Movie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RateMovie">
+    <End Role="Rate" Type="Vodio.Store.Rates" Multiplicity="*" />
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rate">
+        <PropertyRef Name="Movie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RateUser">
+    <End Role="Rate" Type="Vodio.Store.Rates" Multiplicity="*" />
+    <End Role="User" Type="Vodio.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rate">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CategoryGenreCategory">
+    <End Role="CategoryGenre" Type="Vodio.Store.CategoryGenres" Multiplicity="*" />
+    <End Role="Category" Type="Vodio.Store.Categories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CategoryGenre">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CategoryGenreGenre">
+    <End Role="CategoryGenre" Type="Vodio.Store.CategoryGenres" Multiplicity="*" />
+    <End Role="Genre" Type="Vodio.Store.Genres" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CategoryGenre">
+        <PropertyRef Name="Genre_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PurchaseUser">
+    <End Role="Purchase" Type="Vodio.Store.Purchases" Multiplicity="*" />
+    <End Role="User" Type="Vodio.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PurchaseMovie">
+    <End Role="Purchase" Type="Vodio.Store.Purchases" Multiplicity="*" />
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserFactor">
+    <End Role="Factor" Type="Vodio.Store.Factors" Multiplicity="*" />
+    <End Role="User" Type="Vodio.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Factor">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FactorPurchase">
+    <End Role="Factor" Type="Vodio.Store.Factors" Multiplicity="1" />
+    <End Role="Purchase" Type="Vodio.Store.Purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="Factor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MessageUser">
+    <End Role="Message" Type="Vodio.Store.Messages" Multiplicity="*" />
+    <End Role="User" Type="Vodio.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserComment">
+    <End Role="User" Type="Vodio.Store.Users" Multiplicity="1" />
+    <End Role="Comment" Type="Vodio.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MovieMovie">
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="0..1" />
+    <End Role="Movie1" Type="Vodio.Store.Movies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Movie1">
+        <PropertyRef Name="Parent_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HomeBundle_Home">
+    <End Role="Home" Type="Vodio.Store.Homes" Multiplicity="1" />
+    <End Role="HomeBundle" Type="Vodio.Store.HomeBundle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Home">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HomeBundle">
+        <PropertyRef Name="Homes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HomeBundle_Bundle">
+    <End Role="HomeBundle" Type="Vodio.Store.HomeBundle" Multiplicity="*" />
+    <End Role="Bundle" Type="Vodio.Store.Bundles" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Bundle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HomeBundle">
+        <PropertyRef Name="Bundles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BundleMovie_Bundle">
+    <End Role="Bundle" Type="Vodio.Store.Bundles" Multiplicity="1" />
+    <End Role="BundleMovie" Type="Vodio.Store.BundleMovie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bundle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BundleMovie">
+        <PropertyRef Name="Bundles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BundleMovie_Movie">
+    <End Role="BundleMovie" Type="Vodio.Store.BundleMovie" Multiplicity="*" />
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BundleMovie">
+        <PropertyRef Name="Movies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BundleBanner_Bundle">
+    <End Role="Bundle" Type="Vodio.Store.Bundles" Multiplicity="1" />
+    <End Role="BundleBanner" Type="Vodio.Store.BundleBanner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bundle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BundleBanner">
+        <PropertyRef Name="Bundles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BundleBanner_Banner">
+    <End Role="BundleBanner" Type="Vodio.Store.BundleBanner" Multiplicity="*" />
+    <End Role="Banner" Type="Vodio.Store.Banners" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Banner">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BundleBanner">
+        <PropertyRef Name="Banners_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieCategory_Movie">
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="1" />
+    <End Role="MovieCategory" Type="Vodio.Store.MovieCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieCategory">
+        <PropertyRef Name="Movies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieCategory_Category">
+    <End Role="MovieCategory" Type="Vodio.Store.MovieCategory" Multiplicity="*" />
+    <End Role="Category" Type="Vodio.Store.Categories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieCategory">
+        <PropertyRef Name="Categories_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieGenre_Movie">
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="1" />
+    <End Role="MovieGenre" Type="Vodio.Store.MovieGenre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieGenre">
+        <PropertyRef Name="Movies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieGenre_Genre">
+    <End Role="MovieGenre" Type="Vodio.Store.MovieGenre" Multiplicity="*" />
+    <End Role="Genre" Type="Vodio.Store.Genres" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieGenre">
+        <PropertyRef Name="Genres_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PanelUserMovie_PanelUser">
+    <End Role="PanelUser" Type="Vodio.Store.PanelUsers" Multiplicity="1" />
+    <End Role="PanelUserMovie" Type="Vodio.Store.PanelUserMovie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PanelUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PanelUserMovie">
+        <PropertyRef Name="PanelUsers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PanelUserMovie_Movie">
+    <End Role="PanelUserMovie" Type="Vodio.Store.PanelUserMovie" Multiplicity="*" />
+    <End Role="Movie" Type="Vodio.Store.Movies" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PanelUserMovie">
+        <PropertyRef Name="Movies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Vodio" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="VodioContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Movies" EntityType="Vodio.Movie" />
+          <EntitySet Name="Images" EntityType="Vodio.Image" />
+          <AssociationSet Name="MovieImage" Association="Vodio.MovieImage">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <EntitySet Name="Homes" EntityType="Vodio.Home" />
+          <EntitySet Name="Bundles" EntityType="Vodio.Bundle" />
+          <AssociationSet Name="HomeBundle" Association="Vodio.HomeBundle">
+            <End Role="Home" EntitySet="Homes" />
+            <End Role="Bundle" EntitySet="Bundles" />
+          </AssociationSet>
+          <AssociationSet Name="BundleMovie" Association="Vodio.BundleMovie">
+            <End Role="Bundle" EntitySet="Bundles" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <EntitySet Name="Banners" EntityType="Vodio.Banner" />
+          <AssociationSet Name="BundleBanner" Association="Vodio.BundleBanner">
+            <End Role="Bundle" EntitySet="Bundles" />
+            <End Role="Banner" EntitySet="Banners" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="Vodio.Category" />
+          <AssociationSet Name="MovieCategory" Association="Vodio.MovieCategory">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <EntitySet Name="Genres" EntityType="Vodio.Genre" />
+          <AssociationSet Name="MovieGenre" Association="Vodio.MovieGenre">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="Genre" EntitySet="Genres" />
+          </AssociationSet>
+          <EntitySet Name="Agents" EntityType="Vodio.Agent" />
+          <EntitySet Name="Roles" EntityType="Vodio.Role" />
+          <AssociationSet Name="RoleMovie" Association="Vodio.RoleMovie">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="RoleAgent" Association="Vodio.RoleAgent">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Agent" EntitySet="Agents" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="Vodio.User" />
+          <EntitySet Name="Comments" EntityType="Vodio.Comment" />
+          <AssociationSet Name="CommentMovie" Association="Vodio.CommentMovie">
+            <End Role="Comment" EntitySet="Comments" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <EntitySet Name="Rates" EntityType="Vodio.Rate" />
+          <AssociationSet Name="RateMovie" Association="Vodio.RateMovie">
+            <End Role="Rate" EntitySet="Rates" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="RateUser" Association="Vodio.RateUser">
+            <End Role="Rate" EntitySet="Rates" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="CategoryGenres" EntityType="Vodio.CategoryGenre" />
+          <AssociationSet Name="CategoryGenreCategory" Association="Vodio.CategoryGenreCategory">
+            <End Role="CategoryGenre" EntitySet="CategoryGenres" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryGenreGenre" Association="Vodio.CategoryGenreGenre">
+            <End Role="CategoryGenre" EntitySet="CategoryGenres" />
+            <End Role="Genre" EntitySet="Genres" />
+          </AssociationSet>
+          <EntitySet Name="Purchases" EntityType="Vodio.Purchase" />
+          <EntitySet Name="Factors" EntityType="Vodio.Factor" />
+          <AssociationSet Name="PurchaseUser" Association="Vodio.PurchaseUser">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="PurchaseMovie" Association="Vodio.PurchaseMovie">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="UserFactor" Association="Vodio.UserFactor">
+            <End Role="Factor" EntitySet="Factors" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FactorPurchase" Association="Vodio.FactorPurchase">
+            <End Role="Factor" EntitySet="Factors" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <EntitySet Name="Messages" EntityType="Vodio.Message" />
+          <AssociationSet Name="MessageUser" Association="Vodio.MessageUser">
+            <End Role="Message" EntitySet="Messages" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="UserComment" Association="Vodio.UserComment">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <EntitySet Name="PanelUsers" EntityType="Vodio.PanelUser" />
+          <AssociationSet Name="PanelUserMovie" Association="Vodio.PanelUserMovie">
+            <End Role="PanelUser" EntitySet="PanelUsers" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="MovieMovie" Association="Vodio.MovieMovie">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="Movie1" EntitySet="Movies" />
+          </AssociationSet>
+          <EntitySet Name="Emails" EntityType="Vodio.Email" />
+          </EntityContainer>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <NavigationProperty Name="Thumbnail" Relationship="Vodio.MovieImage" FromRole="Movie" ToRole="Image" />
+          <NavigationProperty Name="Bundles" Relationship="Vodio.BundleMovie" FromRole="Movie" ToRole="Bundle" />
+          <NavigationProperty Name="Categories" Relationship="Vodio.MovieCategory" FromRole="Movie" ToRole="Category" />
+          <Property Name="Duration" Type="Int64" Nullable="false" />
+          <Property Name="Rate" Type="Double" Nullable="false" />
+          <Property Name="RatedUsers" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Genres" Relationship="Vodio.MovieGenre" FromRole="Movie" ToRole="Genre" />
+          <NavigationProperty Name="Roles" Relationship="Vodio.RoleMovie" FromRole="Movie" ToRole="Role" />
+          <Property Name="CommentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="Vodio.CommentMovie" FromRole="Movie" ToRole="Comment" />
+          <Property Name="Visit" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="ThumbUps" Type="Int32" Nullable="false" />
+          <Property Name="ThumbDowns" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rates" Relationship="Vodio.RateMovie" FromRole="Movie" ToRole="Rate" />
+          <Property Name="Featured" Type="Boolean" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Purchases" Relationship="Vodio.PurchaseMovie" FromRole="Movie" ToRole="Purchase" />
+          <Property Name="Qualities" Type="String" Nullable="false" DefaultValue="" />
+          <Property Name="Downloadables" Type="String" Nullable="false" DefaultValue="" />
+          <Property Name="Teaser" Type="String" Nullable="false" DefaultValue="" />
+          <Property Name="FolderName" Type="String" Nullable="false" DefaultValue="" />
+          <NavigationProperty Name="PanelUsers" Relationship="Vodio.PanelUserMovie" FromRole="Movie" ToRole="PanelUser" />
+          <Property Name="Disable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Childs" Relationship="Vodio.MovieMovie" FromRole="Movie" ToRole="Movie1" />
+          <NavigationProperty Name="Parent" Relationship="Vodio.MovieMovie" FromRole="Movie1" ToRole="Movie" />
+          <Property Name="EditorialRate" Type="Double" Nullable="false" />
+          <Property Name="Filter" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" Nullable="false" />
+          <Property Name="Width" Type="Int32" Nullable="false" />
+          <Property Name="Height" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="Vodio.MovieImage" FromRole="Image" ToRole="Movie" />
+        </EntityType>
+        <Association Name="MovieImage">
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="1" />
+          <End Type="Vodio.Image" Role="Image" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <NavigationProperty Name="Bundles" Relationship="Vodio.HomeBundle" FromRole="Home" ToRole="Bundle" />
+        </EntityType>
+        <EntityType Name="Bundle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="true" />
+          <Property Name="CateroryId" Type="String" Nullable="true" />
+          <Property Name="GenreId" Type="String" Nullable="true" />
+          <NavigationProperty Name="Homes" Relationship="Vodio.HomeBundle" FromRole="Bundle" ToRole="Home" />
+          <NavigationProperty Name="Movies" Relationship="Vodio.BundleMovie" FromRole="Bundle" ToRole="Movie" />
+          <NavigationProperty Name="Banners" Relationship="Vodio.BundleBanner" FromRole="Bundle" ToRole="Banner" />
+          <Property Name="Type" Type="Int16" Nullable="false" />
+        </EntityType>
+        <Association Name="HomeBundle">
+          <End Type="Vodio.Home" Role="Home" Multiplicity="*" />
+          <End Type="Vodio.Bundle" Role="Bundle" Multiplicity="*" />
+        </Association>
+        <Association Name="BundleMovie">
+          <End Type="Vodio.Bundle" Role="Bundle" Multiplicity="*" />
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" Nullable="false" />
+          <Property Name="Width" Type="Int32" Nullable="false" />
+          <Property Name="Height" Type="Int32" Nullable="false" />
+          <Property Name="UrlToClick" Type="String" Nullable="true" />
+          <Property Name="MovieId" Type="Int32" Nullable="true" />
+          <Property Name="CategoryId" Type="Int32" Nullable="true" />
+          <Property Name="GenreId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Bundles" Relationship="Vodio.BundleBanner" FromRole="Banner" ToRole="Bundle" />
+          <Property Name="ListName" Type="String" Nullable="true" />
+        </EntityType>
+        <Association Name="BundleBanner">
+          <End Type="Vodio.Bundle" Role="Bundle" Multiplicity="*" />
+          <End Type="Vodio.Banner" Role="Banner" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Movies" Relationship="Vodio.MovieCategory" FromRole="Category" ToRole="Movie" />
+        </EntityType>
+        <Association Name="MovieCategory">
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="*" />
+          <End Type="Vodio.Category" Role="Category" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Movies" Relationship="Vodio.MovieGenre" FromRole="Genre" ToRole="Movie" />
+          <NavigationProperty Name="CategoryGenres" Relationship="Vodio.CategoryGenreGenre" FromRole="Genre" ToRole="CategoryGenre" />
+        </EntityType>
+        <Association Name="MovieGenre">
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="*" />
+          <End Type="Vodio.Genre" Role="Genre" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Bio" Type="String" Nullable="true" />
+          <NavigationProperty Name="Roles" Relationship="Vodio.RoleAgent" FromRole="Agent" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="Vodio.RoleMovie" FromRole="Role" ToRole="Movie" />
+          <NavigationProperty Name="Agent" Relationship="Vodio.RoleAgent" FromRole="Role" ToRole="Agent" />
+        </EntityType>
+        <Association Name="RoleMovie">
+          <End Type="Vodio.Role" Role="Role" Multiplicity="*" />
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="1" />
+        </Association>
+        <Association Name="RoleAgent">
+          <End Type="Vodio.Role" Role="Role" Multiplicity="*" />
+          <End Type="Vodio.Agent" Role="Agent" Multiplicity="1" />
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Msisdn" Type="String" Nullable="false" />
+          <Property Name="Token" Type="Guid" Nullable="true" />
+          <Property Name="LastLogin" Type="DateTime" Nullable="true" />
+          <Property Name="Platform" Type="String" Nullable="false" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="true" />
+          <NavigationProperty Name="Rates" Relationship="Vodio.RateUser" FromRole="User" ToRole="Rate" />
+          <NavigationProperty Name="Purchases" Relationship="Vodio.PurchaseUser" FromRole="User" ToRole="Purchase" />
+          <NavigationProperty Name="Factors" Relationship="Vodio.UserFactor" FromRole="User" ToRole="Factor" />
+          <NavigationProperty Name="Messages" Relationship="Vodio.MessageUser" FromRole="User" ToRole="Message" />
+          <Property Name="CodeSentTime" Type="DateTime" Nullable="false" />
+          <Property Name="RetryCodeSent" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="Vodio.UserComment" FromRole="User" ToRole="Comment" />
+          <Property Name="FailedCodeTry" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="Vodio.CommentMovie" FromRole="Comment" ToRole="Movie" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Vodio.UserComment" FromRole="Comment" ToRole="User" />
+        </EntityType>
+        <Association Name="CommentMovie">
+          <End Type="Vodio.Comment" Role="Comment" Multiplicity="*" />
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Rate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThumbUp" Type="Boolean" Nullable="false" />
+          <Property Name="ThumbDown" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="Vodio.RateMovie" FromRole="Rate" ToRole="Movie" />
+          <NavigationProperty Name="User" Relationship="Vodio.RateUser" FromRole="Rate" ToRole="User" />
+        </EntityType>
+        <Association Name="RateMovie">
+          <End Type="Vodio.Rate" Role="Rate" Multiplicity="*" />
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="1" />
+        </Association>
+        <Association Name="RateUser">
+          <End Type="Vodio.Rate" Role="Rate" Multiplicity="*" />
+          <End Type="Vodio.User" Role="User" Multiplicity="1" />
+        </Association>
+        <EntityType Name="CategoryGenre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Category" Relationship="Vodio.CategoryGenreCategory" FromRole="CategoryGenre" ToRole="Category" />
+          <NavigationProperty Name="Genre" Relationship="Vodio.CategoryGenreGenre" FromRole="CategoryGenre" ToRole="Genre" />
+        </EntityType>
+        <Association Name="CategoryGenreCategory">
+          <End Type="Vodio.CategoryGenre" Role="CategoryGenre" Multiplicity="*" />
+          <End Type="Vodio.Category" Role="Category" Multiplicity="1" />
+        </Association>
+        <Association Name="CategoryGenreGenre">
+          <End Type="Vodio.CategoryGenre" Role="CategoryGenre" Multiplicity="*" />
+          <End Type="Vodio.Genre" Role="Genre" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="Vodio.PurchaseUser" FromRole="Purchase" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="Vodio.PurchaseMovie" FromRole="Purchase" ToRole="Movie" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Factor" Relationship="Vodio.FactorPurchase" FromRole="Purchase" ToRole="Factor" />
+        </EntityType>
+        <EntityType Name="Factor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" />
+          <Property Name="TransactionId" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Vodio.UserFactor" FromRole="Factor" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="MovieID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Purchase" Relationship="Vodio.FactorPurchase" FromRole="Factor" ToRole="Purchase" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Result" Type="Boolean" Nullable="false" />
+          <Property Name="CompleteDateTime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <Association Name="PurchaseUser">
+          <End Type="Vodio.Purchase" Role="Purchase" Multiplicity="*" />
+          <End Type="Vodio.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PurchaseMovie">
+          <End Type="Vodio.Purchase" Role="Purchase" Multiplicity="*" />
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserFactor">
+          <End Type="Vodio.Factor" Role="Factor" Multiplicity="*" />
+          <End Type="Vodio.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factor">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FactorPurchase">
+          <End Type="Vodio.Factor" Role="Factor" Multiplicity="1" />
+          <End Type="Vodio.Purchase" Role="Purchase" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" />
+          <Property Name="Text" Type="String" Nullable="false" />
+          <Property Name="MediaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Vodio.MessageUser" FromRole="Message" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="MessageUser">
+          <End Type="Vodio.Message" Role="Message" Multiplicity="*" />
+          <End Type="Vodio.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserComment">
+          <End Type="Vodio.User" Role="User" Multiplicity="1" />
+          <End Type="Vodio.Comment" Role="Comment" Multiplicity="*" />
+        </Association>
+        <EntityType Name="PanelUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Movies" Relationship="Vodio.PanelUserMovie" FromRole="PanelUser" ToRole="Movie" />
+          <Property Name="Token" Type="Guid" Nullable="true" />
+          <Property Name="Role" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="PanelUserMovie">
+          <End Type="Vodio.PanelUser" Role="PanelUser" Multiplicity="*" />
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="*" />
+        </Association>
+        <Association Name="MovieMovie">
+          <End Type="Vodio.Movie" Role="Movie" Multiplicity="0..1" />
+          <End Type="Vodio.Movie" Role="Movie1" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VodioStoreContainer" CdmEntityContainer="VodioContainer">
+    <EntitySetMapping Name="Movies">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Movie)">
+        <MappingFragment StoreEntitySet="Movies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="RatedUsers" ColumnName="RatedUsers" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="Visit" ColumnName="Visit" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ThumbUps" ColumnName="ThumbUps" />
+          <ScalarProperty Name="ThumbDowns" ColumnName="ThumbDowns" />
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Qualities" ColumnName="Qualities" />
+          <ScalarProperty Name="Downloadables" ColumnName="Downloadables" />
+          <ScalarProperty Name="Teaser" ColumnName="Teaser" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="Disable" ColumnName="Disable" />
+          <ScalarProperty Name="EditorialRate" ColumnName="EditorialRate" />
+          <ScalarProperty Name="Filter" ColumnName="Filter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Image)">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Homes">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Home)">
+        <MappingFragment StoreEntitySet="Homes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bundles">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Bundle)">
+        <MappingFragment StoreEntitySet="Bundles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CateroryId" ColumnName="CateroryId" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Banner)">
+        <MappingFragment StoreEntitySet="Banners">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="UrlToClick" ColumnName="UrlToClick" />
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="ListName" ColumnName="ListName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Category)">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Genre)">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Agent)">
+        <MappingFragment StoreEntitySet="Agents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="Platform" ColumnName="Platform" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CodeSentTime" ColumnName="CodeSentTime" />
+          <ScalarProperty Name="RetryCodeSent" ColumnName="RetryCodeSent" />
+          <ScalarProperty Name="FailedCodeTry" ColumnName="FailedCodeTry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Comment)">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rates">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Rate)">
+        <MappingFragment StoreEntitySet="Rates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ThumbUp" ColumnName="ThumbUp" />
+          <ScalarProperty Name="ThumbDown" ColumnName="ThumbDown" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryGenres">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.CategoryGenre)">
+        <MappingFragment StoreEntitySet="CategoryGenres">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Purchase)">
+        <MappingFragment StoreEntitySet="Purchases">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factors">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Factor)">
+        <MappingFragment StoreEntitySet="Factors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="CompleteDateTime" ColumnName="CompleteDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Message)">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PanelUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.PanelUser)">
+        <MappingFragment StoreEntitySet="PanelUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emails">
+      <EntityTypeMapping TypeName="IsTypeOf(Vodio.Email)">
+        <MappingFragment StoreEntitySet="Emails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MovieImage" TypeName="Vodio.MovieImage" StoreEntitySet="Movies">
+      <EndProperty Name="Image">
+        <ScalarProperty Name="Id" ColumnName="Thumbnail_Id" />
+      </EndProperty>
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HomeBundle" TypeName="Vodio.HomeBundle" StoreEntitySet="HomeBundle">
+      <EndProperty Name="Home">
+        <ScalarProperty Name="Id" ColumnName="Homes_Id" />
+      </EndProperty>
+      <EndProperty Name="Bundle">
+        <ScalarProperty Name="Id" ColumnName="Bundles_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BundleMovie" TypeName="Vodio.BundleMovie" StoreEntitySet="BundleMovie">
+      <EndProperty Name="Bundle">
+        <ScalarProperty Name="Id" ColumnName="Bundles_Id" />
+      </EndProperty>
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Movies_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BundleBanner" TypeName="Vodio.BundleBanner" StoreEntitySet="BundleBanner">
+      <EndProperty Name="Bundle">
+        <ScalarProperty Name="Id" ColumnName="Bundles_Id" />
+      </EndProperty>
+      <EndProperty Name="Banner">
+        <ScalarProperty Name="Id" ColumnName="Banners_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MovieCategory" TypeName="Vodio.MovieCategory" StoreEntitySet="MovieCategory">
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Movies_Id" />
+      </EndProperty>
+      <EndProperty Name="Category">
+        <ScalarProperty Name="Id" ColumnName="Categories_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MovieGenre" TypeName="Vodio.MovieGenre" StoreEntitySet="MovieGenre">
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Movies_Id" />
+      </EndProperty>
+      <EndProperty Name="Genre">
+        <ScalarProperty Name="Id" ColumnName="Genres_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoleMovie" TypeName="Vodio.RoleMovie" StoreEntitySet="Roles">
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Movie_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoleAgent" TypeName="Vodio.RoleAgent" StoreEntitySet="Roles">
+      <EndProperty Name="Agent">
+        <ScalarProperty Name="Id" ColumnName="Agent_Id" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommentMovie" TypeName="Vodio.CommentMovie" StoreEntitySet="Comments">
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Movie_Id" />
+      </EndProperty>
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RateMovie" TypeName="Vodio.RateMovie" StoreEntitySet="Rates">
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Movie_Id" />
+      </EndProperty>
+      <EndProperty Name="Rate">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RateUser" TypeName="Vodio.RateUser" StoreEntitySet="Rates">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Rate">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryGenreCategory" TypeName="Vodio.CategoryGenreCategory" StoreEntitySet="CategoryGenres">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="Id" ColumnName="Category_Id" />
+      </EndProperty>
+      <EndProperty Name="CategoryGenre">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CategoryGenreGenre" TypeName="Vodio.CategoryGenreGenre" StoreEntitySet="CategoryGenres">
+      <EndProperty Name="Genre">
+        <ScalarProperty Name="Id" ColumnName="Genre_Id" />
+      </EndProperty>
+      <EndProperty Name="CategoryGenre">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactorPurchase" TypeName="Vodio.FactorPurchase" StoreEntitySet="Purchases">
+      <EndProperty Name="Factor">
+        <ScalarProperty Name="Id" ColumnName="Factor_Id" />
+      </EndProperty>
+      <EndProperty Name="Purchase">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserComment" TypeName="Vodio.UserComment" StoreEntitySet="Comments">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="User_Id" />
+      </EndProperty>
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PanelUserMovie" TypeName="Vodio.PanelUserMovie" StoreEntitySet="PanelUserMovie">
+      <EndProperty Name="PanelUser">
+        <ScalarProperty Name="Id" ColumnName="PanelUsers_Id" />
+      </EndProperty>
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Movies_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MovieMovie" TypeName="Vodio.MovieMovie" StoreEntitySet="Movies">
+      <EndProperty Name="Movie">
+        <ScalarProperty Name="Id" ColumnName="Parent_Id" />
+      </EndProperty>
+      <EndProperty Name="Movie1">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Parent_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9fb98bb30af8404684a6ebe9d32e7415" Name="Diagram1">
+        <EntityTypeShape EntityType="Vodio.Movie" Width="1.5" PointX="9.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Image" Width="1.5" PointX="12" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Home" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Bundle" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Banner" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Category" Width="1.5" PointX="12" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Genre" Width="1.5" PointX="12" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Agent" Width="1.5" PointX="9.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Role" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.User" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Comment" Width="1.5" PointX="7.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Rate" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.CategoryGenre" Width="1.5" PointX="9.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Purchase" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Factor" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Message" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.PanelUser" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vodio.Email" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="Vodio.MovieImage" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.HomeBundle" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.BundleMovie" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.BundleBanner" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.MovieCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.MovieGenre" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.RoleMovie" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.RoleAgent" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.CommentMovie" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.RateMovie" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.RateUser" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.CategoryGenreCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.CategoryGenreGenre" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.PurchaseUser" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.PurchaseMovie" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.UserFactor" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.FactorPurchase" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.MessageUser" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.UserComment" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.PanelUserMovie" ManuallyRouted="false" />
+        <AssociationConnector Association="Vodio.MovieMovie" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
