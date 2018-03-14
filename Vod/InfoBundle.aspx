@@ -17,34 +17,19 @@
                     selected_tab = i.index;
                 }
             });
-            selected_tab = $("[id$=selected_tab]").val() != "" ? parseInt($("[id$=selected_tab]").val()) : 0;
-            tabs.tabs('select', selected_tab);
-            $("form").submit(function () {
-                $("[id$=selected_tab]").val(selected_tab);
+
+            $('#tabs ul li a').click(function () {
+                location.hash = $(this).attr('href');
             });
+
+            //maintain hash on post back
+            $('#<%=Page.Form.ClientID%>').attr('onsubmit', 'this.action += top.location.hash');
+            //selected_tab = $("[id$=selected_tab]").val() != "" ? parseInt($("[id$=selected_tab]").val()) : 0;
+            //tabs.tabs('select', selected_tab);
+            //$("form").submit(function () {
+                //$("[id$=selected_tab]").val(selected_tab);
+            //});
         });
-
-        $(document).ready(function () {
-            jQuery('.ctabs .ctab-links a').on('click', function (e) {
-                var currentAttrValue = jQuery(this).attr('href');
-                localStorage["currentTab"] = currentAttrValue;
-
-                // Show/Hide Tabs
-                jQuery('.ctabs ' + currentAttrValue).show().siblings().hide();
-
-                // Change/remove current tab to active
-                jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
-
-                e.preventDefault();
-            });
-            if (localStorage["currentTab"]) {
-                // Show/Hide Tabs
-                jQuery('.ctabs ' + localStorage["currentTab"]).show().siblings().hide();
-                // Change/remove current tab to active
-                jQuery('.ctabs .ctab-links a[href$="' + localStorage["currentTab"] + '"]').parent('li').addClass('active').siblings().removeClass('active');
-            }
-        });
-
 
     </script>
     <br />
