@@ -137,6 +137,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddAgent.aspx" />
+    <Content Include="AddBan.aspx" />
+    <Content Include="AddBundle.aspx" />
     <Content Include="AddCat.aspx" />
     <Content Include="AddCat2Mov.aspx" />
     <Content Include="AddGen.aspx" />
@@ -144,6 +146,8 @@
     <Content Include="AddNewMovie.aspx" />
     <Content Include="AddRol2Mov.aspx" />
     <Content Include="agent.aspx" />
+    <Content Include="banner.aspx" />
+    <Content Include="bundle.aspx" />
     <Content Include="category.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -151,6 +155,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="editAgent.aspx" />
+    <Content Include="EditBanner.aspx" />
+    <Content Include="EditBundle.aspx" />
     <Content Include="EditMoviePage.aspx" />
     <Content Include="EditPage.aspx" />
     <Content Include="FactorsPurchases.aspx" />
@@ -165,12 +171,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="HomePage.aspx" />
+    <Content Include="InfoBundle.aspx" />
     <Content Include="MasterPage.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="MovieCategories.aspx" />
     <Content Include="MovieGenres.aspx" />
     <Content Include="MovieRoles.aspx" />
     <Content Include="movyform.aspx" />
+    <Content Include="ReorderBanner.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -223,6 +235,20 @@
     </Compile>
     <Compile Include="AddAgent.aspx.designer.cs">
       <DependentUpon>AddAgent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddBan.aspx.cs">
+      <DependentUpon>AddBan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBan.aspx.designer.cs">
+      <DependentUpon>AddBan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddBundle.aspx.cs">
+      <DependentUpon>AddBundle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBundle.aspx.designer.cs">
+      <DependentUpon>AddBundle.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddCat.aspx.cs">
       <DependentUpon>AddCat.aspx</DependentUpon>
@@ -285,8 +311,22 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="banner.aspx.cs">
+      <DependentUpon>banner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="banner.aspx.designer.cs">
+      <DependentUpon>banner.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Banner.cs">
       <DependentUpon>Vodio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bundle.aspx.cs">
+      <DependentUpon>bundle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bundle.aspx.designer.cs">
+      <DependentUpon>bundle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Bundle.cs">
       <DependentUpon>Vodio.tt</DependentUpon>
@@ -327,6 +367,20 @@
     </Compile>
     <Compile Include="editAgent.aspx.designer.cs">
       <DependentUpon>editAgent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditBanner.aspx.cs">
+      <DependentUpon>EditBanner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditBanner.aspx.designer.cs">
+      <DependentUpon>EditBanner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditBundle.aspx.cs">
+      <DependentUpon>EditBundle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditBundle.aspx.designer.cs">
+      <DependentUpon>EditBundle.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMoviePage.aspx.cs">
       <DependentUpon>EditMoviePage.aspx</DependentUpon>
@@ -381,6 +435,13 @@
     <Compile Include="Image.cs">
       <DependentUpon>Vodio.tt</DependentUpon>
     </Compile>
+    <Compile Include="InfoBundle.aspx.cs">
+      <DependentUpon>InfoBundle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InfoBundle.aspx.designer.cs">
+      <DependentUpon>InfoBundle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -425,11 +486,28 @@
       <DependentUpon>Vodio.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Purchase.cs">
       <DependentUpon>Vodio.tt</DependentUpon>
     </Compile>
     <Compile Include="Rate.cs">
       <DependentUpon>Vodio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReorderBanner.aspx.cs">
+      <DependentUpon>ReorderBanner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReorderBanner.aspx.designer.cs">
+      <DependentUpon>ReorderBanner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Vodio.tt</DependentUpon>
@@ -493,6 +571,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

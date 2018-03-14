@@ -13,14 +13,16 @@ namespace Vod
         {
             VodioContainer ve = new VodioContainer();
             //dt.Text = Request.QueryString["dt"];
+            if (!Page.IsPostBack)
+            {
+                String dt = Request.QueryString["dt"];
+                int temp = Int32.Parse(dt);
 
-            String dt = Request.QueryString["dt"];
-            int temp = Int32.Parse(dt);
+                Agent ag1 = ve.Agents.Where(c => c.Id == temp).FirstOrDefault();
 
-            Agent ag1 = ve.Agents.Where(c => c.Id == temp).FirstOrDefault();
-
-            NameText.Text = ag1.Name.ToString();
-            BioText.Text = ag1.Bio.ToString();
+                NameText.Text = ag1.Name.ToString();
+                BioText.Text = ag1.Bio.ToString();
+            }
         }
 
         protected void Back_Click(object sender, EventArgs e)

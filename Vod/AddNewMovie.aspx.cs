@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Drawing;
+
 
 namespace Vod
 {
     public partial class AddNewMovie : System.Web.UI.Page
     {
+        //public string fileName;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -82,6 +88,17 @@ namespace Vod
                     if (dl[dl.Length - 1] == ',')
                         dl = dl.Remove(dl.Length - 1);
                 //int id = ve.Movies.Max(m => m.Id);
+
+                //System.IO.Stream stream = PosterUpload.PostedFile.InputStream;
+                //System.Drawing.Image poster = System.Drawing.Image.FromStream(stream);
+                string fn = (string) Session["fileName"];
+                Bitmap poster = new Bitmap(Path.Combine(Properties.Settings.Default.PosterDir, fn));
+
+                //var poster = new Image();
+                //poster.src = "myFile.png";
+
+                //System.Drawing.Image poster = System.Drawing.Image.FromStream(PosterUpload.PostedFile.InputStream);
+
                 Movie mov = new Movie()
                 {
                     //Id = 200,
@@ -104,13 +121,39 @@ namespace Vod
                     Duration = 0,  /// TODO : should be changes!
                     Disable = DisableCheckbox.Checked,
                     EditorialRate = Convert.ToDouble(EditorialRateText.Text),
-                    Thumbnail = new Image() { Height = 0, Width = 0, Url="Unknown"},
+                    Thumbnail = new Image() { Height = poster.Height, Width = poster.Height, Url= fn },
                 };
 
                 ve.Movies.Add(mov);
                 //ve.Entry(category1).State = System.Data.Entity.EntityState.Modified;
                 ve.SaveChanges();
                 Response.Write(@"<script language='javascript'>alert('Add successfully!');</script>");
+            }
+        }
+
+        //protected void set_fileName(string name)
+        //{
+        //    fileName = name;
+        //}
+
+        protected void UploadButton_Click(object sender, EventArgs e)
+        {
+
+            if (PosterUpload.HasFile)
+            {
+                //string value = ConfigurationManager.AppSettings["PosterDirectory"];
+                //string t = Properties.Settings.Default.PosterDir;
+
+                PosterUpload.SaveAs(@Properties.Settings.Default.PosterDir + PosterUpload.FileName);
+                UploadState.Text = "File Uploaded: " + PosterUpload.FileName;
+                //set_fileName(PosterUpload.FileName);
+                Session["fileName"] = PosterUpload.FileName;
+                //if( PosterUpload.FileName.ToString() != "" )
+                //    fileName = PosterUpload.FileName.ToString();
+            }
+            else
+            {
+                UploadState.Text = "No File Uploaded.";
             }
         }
     }

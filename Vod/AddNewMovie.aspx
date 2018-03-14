@@ -42,6 +42,11 @@
     <asp:CheckBox ID="DisableCheckbox" runat="server" />
     <br />
     <br />
+    <asp:FileUpload ID="PosterUpload" runat="server" />
+    <asp:Button ID="UploadButton" runat="server" Text="Upload" OnClick="UploadButton_Click" />
+    <asp:Label ID="UploadState" runat="server" Text=""></asp:Label>
+    <br />
+    <br />
     <br />
     <asp:Button ID="AddMovie" runat="server" Text="Add New Movie" OnClick="AddMovie_Click" />
 

@@ -10,5 +10,9 @@
     <asp:LinkButton ID="Genres" runat="server" OnClick="Genres_Click">Genres</asp:LinkButton>
     <br />
     <asp:LinkButton ID="Agents" runat="server" OnClick="Agents_Click">Agents</asp:LinkButton>
+    <br />
+    <asp:LinkButton ID="Banners" runat="server" OnClick="Banners_Click">Banners</asp:LinkButton>
+    <br />
+    <asp:LinkButton ID="Bundles" runat="server" OnClick="Bundles_Click">Bundles</asp:LinkButton>
 
 </asp:Content>

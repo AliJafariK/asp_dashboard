@@ -4,17 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Drawing;
 
 namespace Vod
 {
     public partial class EditMoviePage : System.Web.UI.Page
     {
+        public string dt;
+
+        protected string dt_load()
+        {
+            return Request.QueryString["dt"];
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            dt = dt_load();
             if (!Page.IsPostBack)
             {
-                String dt = Request.QueryString["dt"];
-
                 int temp = Int32.Parse(dt);
 
                 VodioContainer ve = new VodioContainer();
@@ -76,6 +84,9 @@ namespace Vod
                 else
                     Qualities1080.Checked = false;
 
+
+                UploadState.Text = mov1.Thumbnail.Url;
+                Session["fileName"] = mov1.Thumbnail.Url;
 
 
             }
@@ -143,41 +154,63 @@ namespace Vod
                 if (dl.Length >= 1)
                     if (dl[dl.Length - 1] == ',')
                         dl = dl.Remove(dl.Length - 1);
-                //int id = ve.Movies.Max(m => m.Id);
-                Movie mov = new Movie()
-                {
-                    //Id = 200,
-                    Title = MovieTitleText.Text,
-                    Description = DescriptionText.Text,
-                    Year = int.Parse(YearText.Text),
-                    Price = int.Parse(PriceText.Text),
-                    Featured = FeaturedCheckBox.Checked,
-                    FolderName = FolderNameText.Text,
-                    Qualities = Qua,
-                    Downloadables = dl,
-                    Teaser = Qua,
-                    Rate = 0,
-                    RatedUsers = 0,
-                    DateCreated = DateTime.Now,
-                    CommentId = 0,
-                    Visit = 0,
-                    ThumbUps = 0,
-                    ThumbDowns = 0,
-                    Duration = 0,  /// TODO : should be changes!
-                    Disable = DisableCheckbox.Checked,
-                    EditorialRate = Convert.ToDouble(EditorialRateText.Text),
-                    Thumbnail = new Image() { Height = 0, Width = 0, Url = "Unknown" },
-                };
 
-                ve.Movies.Add(mov);
-                //ve.Entry(category1).State = System.Data.Entity.EntityState.Modified;
+                string fn = (string)Session["fileName"];
+                Bitmap poster = new Bitmap(Path.Combine(Properties.Settings.Default.PosterDir, fn));
+
+                int temp = Int32.Parse(dt);
+
+                var mov1 = ve.Movies.Where(c => c.Id == temp).FirstOrDefault();
+
+                mov1.Title = MovieTitleText.Text;
+                mov1.Description = DescriptionText.Text;
+                mov1.Year = int.Parse(YearText.Text);
+                mov1.Price = int.Parse(PriceText.Text);
+                mov1.Featured = FeaturedCheckBox.Checked;
+                mov1.FolderName = FolderNameText.Text;
+                mov1.Qualities = Qua;
+                mov1.Downloadables = dl;
+                mov1.Teaser = Qua;
+                mov1.Rate = 0;
+                mov1.RatedUsers = 0;
+                mov1.DateCreated = DateTime.Now;
+                mov1.CommentId = 0;
+                mov1.Visit = 0;
+                mov1.ThumbUps = 0;
+                mov1.ThumbDowns = 0;
+                mov1.Duration = 0;  /// TODO : should be changes!
+                mov1.Disable = DisableCheckbox.Checked;
+                mov1.EditorialRate = Convert.ToDouble(EditorialRateText.Text);
+                mov1.Thumbnail.Url = fn;
+                mov1.Thumbnail.Width = poster.Width;
+                mov1.Thumbnail.Height = poster.Height;
+                //mov1.Thumbnail = new Image() { Height = poster.Height, Width = poster.Width, Url = fn };
+
                 ve.SaveChanges();
+
             }
+
+
         }
 
         protected void Back_Click(object sender, EventArgs e)
         {
             Response.Redirect("movyform.aspx");
+        }
+
+
+        protected void UploadButton_Click(object sender, EventArgs e)
+        {
+            if (PosterUpload.HasFile)
+            {
+                PosterUpload.SaveAs(@Properties.Settings.Default.PosterDir + PosterUpload.FileName);
+                UploadState.Text = "File Uploaded: " + PosterUpload.FileName;
+                Session["fileName"] = PosterUpload.FileName;
+            }
+            else
+            {
+                UploadState.Text = "No File Uploaded.";
+            }
         }
     }
 }

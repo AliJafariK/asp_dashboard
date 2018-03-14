@@ -10,60 +10,60 @@
 namespace Vod {
     
     
-    public partial class HomePage {
+    public partial class EditBundle {
         
         /// <summary>
-        /// Movies control.
+        /// Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Movies;
+        protected global::System.Web.UI.WebControls.LinkButton Back;
         
         /// <summary>
-        /// Categories control.
+        /// TitleBundle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Categories;
+        protected global::System.Web.UI.WebControls.Label TitleBundle;
         
         /// <summary>
-        /// Genres control.
+        /// TitleBundleT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Genres;
+        protected global::System.Web.UI.WebControls.TextBox TitleBundleT;
         
         /// <summary>
-        /// Agents control.
+        /// TypeBundle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Agents;
+        protected global::System.Web.UI.WebControls.Label TypeBundle;
         
         /// <summary>
-        /// Banners control.
+        /// TypeT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Banners;
+        protected global::System.Web.UI.WebControls.TextBox TypeT;
         
         /// <summary>
-        /// Bundles control.
+        /// AddBundle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Bundles;
+        protected global::System.Web.UI.WebControls.Button AddBundle;
     }
 }

@@ -8,7 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link type="text/css" href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css" rel="Stylesheet" />
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.min.js"></script>
     <title>Sample | Vodio </title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -34,6 +36,10 @@
                         <li><a href="category.aspx">Categories</a></li>
                         <li><a href="genre.aspx">Genres</a></li>
                         <li><a href="agent.aspx">Agents</a></li>
+                        <li><a href="banner.aspx">Banners</a></li>
+                        <li><a href="bundle.aspx">Bundles</a></li>
+
+
 
                     </ul>
                 </div>

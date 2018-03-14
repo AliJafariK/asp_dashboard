@@ -34,5 +34,16 @@ namespace Vod
         {
             Response.Redirect("agent.aspx");
         }
+
+        protected void Banners_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("banner.aspx");
+
+        }
+
+        protected void Bundles_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("bundle.aspx");
+        }
     }
 }

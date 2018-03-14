@@ -42,6 +42,11 @@
     <asp:Label ID="Disable" runat="server" Text="Disable"></asp:Label>
     <asp:CheckBox ID="DisableCheckbox" runat="server" />
     <br />
+    <asp:FileUpload ID="PosterUpload" runat="server" />
+    <asp:Button ID="UploadButton" runat="server" Text="Upload" OnClick="UploadButton_Click" />
+    <asp:Label ID="UploadState" runat="server" Text=""></asp:Label>
+    <br />
+    <br />
     <br />
     <asp:Button ID="Update" runat="server" Text="Update" OnClick="Update_Click1" />
 
